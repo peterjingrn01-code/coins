@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>JSLΩ Coin Account</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Noto Sans",sans-serif}.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 16px}.card{width:100%;max-width:520px;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 8px 28px rgba(0,0,0,.08);padding:24px}.brand{text-align:center;font-size:34px;font-weight:800;letter-spacing:-1px}.sub{text-align:center;color:#6b7280;margin-top:7px}.tabs{display:flex;gap:10px;margin-top:22px}.tabs button{flex:1;border:1px solid #d1d5db;background:#fff;border-radius:999px;padding:11px;font-weight:700;cursor:pointer}.tabs button.active{background:#111827;color:#fff;border-color:#111827}.form{margin-top:18px;display:none}.form.active{display:block}.field{margin-top:12px}.field label{display:block;font-size:13px;color:#4b5563;margin-bottom:5px}.field input{width:100%;border:1px solid #d1d5db;border-radius:14px;padding:12px 13px;font-size:15px}.primary{margin-top:16px;width:100%;border:0;background:#111827;color:#fff;border-radius:14px;padding:13px;font-size:15px;font-weight:800;cursor:pointer}.panel{margin-top:18px;padding:14px;border-radius:18px;background:#f9fafb;border:1px solid #e5e7eb;color:#374151;font-size:14px;line-height:1.55}.row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #e5e7eb;padding:8px 0}.row:last-child{border-bottom:0}.small{font-size:12px;color:#6b7280}.home{display:block;text-align:center;margin-top:16px;color:#2563eb;text-decoration:none;font-weight:650}
+</style>
+</head>
+<body>
+<div class="page"><section class="card">
+  <div class="brand">JSLΩ Coin</div>
+  <div class="sub">User Account → Ω Wallet</div>
+  <div class="tabs"><button id="signinTab">Coin Sign In</button><button id="signupTab">Coin Sign Up</button></div>
+  <form id="signin" class="form"><div class="field"><label>Email or Ω ID</label><input required placeholder="user@example.com"></div><div class="field"><label>Password</label><input type="password" required placeholder="Password"></div><button class="primary" type="submit">Sign In</button></form>
+  <form id="signup" class="form"><div class="field"><label>Account name</label><input id="name" required placeholder="Your name"></div><div class="field"><label>Email</label><input id="email" type="email" required placeholder="user@example.com"></div><div class="field"><label>Password</label><input type="password" required placeholder="Create password"></div><button class="primary" type="submit">Create User Account</button></form>
+  <div id="result" class="panel">
+    <div class="row"><strong>Genesis Owner</strong><span>First account</span></div>
+    <div class="row"><strong>Total Supply</strong><span>1,000,000,000 JSLΩ</span></div>
+    <div class="small">After sign in/sign up, the user can create an Ω Wallet and receive/send JSLΩ inside the test ledger.</div>
+  </div>
+  <a class="home" href="index.html">Back to JSL-ian Home</a>
+</section></div>
+<script>
+const signin=document.getElementById('signin'), signup=document.getElementById('signup'), signinTab=document.getElementById('signinTab'), signupTab=document.getElementById('signupTab'), result=document.getElementById('result');
+function show(which){const s=which==='signup'; signin.classList.toggle('active',!s); signup.classList.toggle('active',s); signinTab.classList.toggle('active',!s); signupTab.classList.toggle('active',s)}
+signinTab.onclick=()=>show('signin'); signupTab.onclick=()=>show('signup'); show(location.hash==='#signup'?'signup':'signin');
+function omegaId(){return 'Ω-'+new Date().getFullYear()+'-'+Math.random().toString(16).slice(2,10).toUpperCase()}
+function wallet(){return 'ΩW-'+Math.random().toString(16).slice(2,6).toUpperCase()+'-'+Math.random().toString(16).slice(2,6).toUpperCase()+'-'+Math.random().toString(16).slice(2,6).toUpperCase()}
+signup.addEventListener('submit',e=>{e.preventDefault();const owner=!localStorage.getItem('jsl_genesis_owner');const id=omegaId();const w=wallet();if(owner)localStorage.setItem('jsl_genesis_owner',id);result.innerHTML='<div class="row"><strong>Account</strong><span>'+id+'</span></div><div class="row"><strong>Ω Wallet</strong><span>'+w+'</span></div><div class="row"><strong>Role</strong><span>'+(owner?'Genesis Owner':'User')+'</span></div><button class="primary" onclick="alert(\'Ω Wallet created for test ledger.\')">Create / Open Ω Wallet</button>';});
+signin.addEventListener('submit',e=>{e.preventDefault();result.innerHTML='<div class="row"><strong>Status</strong><span>Signed in</span></div><div class="row"><strong>Ω Wallet</strong><span>Ready</span></div><button class="primary" onclick="alert(\'Open Ω Wallet.\')">Open Ω Wallet</button>';});
+</script>
+</body>
+</html>
