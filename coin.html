@@ -54,12 +54,39 @@ input{width:100%;padding:14px;border:1px solid #d1d5db;border-radius:12px;margin
 <button class="action" type="submit">Open Wallet</button>
 </form>
 
+  
   <form id="transferForm">
-<input id="fromEmail" required type="email" placeholder="From Email">
-<input id="toEmail" required type="email" placeholder="To Email">
-<input id="amount" required type="number" placeholder="Amount">
-<button class="action" type="submit">Send JSL</button>
-  </form>
+
+<div class="tabs">
+<button type="button" id="sendMode">Send</button>
+<button type="button" id="receiveMode">Receive</button>
+</div>
+
+<div id="sendBox">
+
+<input id="fromEmail" type="email" placeholder="From Email">
+
+<input id="toEmail" type="email" placeholder="To Email">
+
+<input id="amount" type="number" placeholder="Amount">
+
+<button class="action" type="submit">
+Send JSL
+</button>
+
+</div>
+
+<div id="receiveBox" style="display:none">
+
+<input id="receiveEmail" type="email" placeholder="Your Email">
+
+<button class="action" type="button">
+Receive
+</button>
+
+</div>
+
+</form>
   
 <div id="result" class="result">Ready.</div>
 
