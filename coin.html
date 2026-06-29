@@ -33,6 +33,7 @@ input{width:100%;padding:14px;border:1px solid #d1d5db;border-radius:12px;margin
 <button id="signupTab" class="active">Create Account</button>
 <button id="signinTab">Sign In</button>
 <button id="walletTab">Wallet</button>
+  <button id="transferTab">Transfer</button>
 </div>
 
 <form id="signupForm" class="active">
@@ -53,6 +54,13 @@ input{width:100%;padding:14px;border:1px solid #d1d5db;border-radius:12px;margin
 <button class="action" type="submit">Open Wallet</button>
 </form>
 
+  <form id="transferForm">
+<input id="fromEmail" required type="email" placeholder="From Email">
+<input id="toEmail" required type="email" placeholder="To Email">
+<input id="amount" required type="number" placeholder="Amount">
+<button class="action" type="submit">Send JSL</button>
+  </form>
+  
 <div id="result" class="result">Ready.</div>
 
 <div class="links">
@@ -67,7 +75,7 @@ const API="https://api.jsl-ian.com";
 const result=document.getElementById("result");
 
 function show(tab){
-for(const id of ["signup","signin","wallet"]){
+for(const id of ["signup","signin","wallet","transfer"]){
 document.getElementById(id+"Form").classList.remove("active");
 document.getElementById(id+"Tab").classList.remove("active");
 }
@@ -79,6 +87,7 @@ result.textContent="Ready.";
 signupTab.onclick=()=>show("signup");
 signinTab.onclick=()=>show("signin");
 walletTab.onclick=()=>show("wallet");
+transferTab.onclick=()=>show("transfer");
 
 async function call(path,data){
 const res=await fetch(API+path,{
@@ -117,6 +126,20 @@ const email=encodeURIComponent(walletEmail.value);
 const res=await fetch(API+"/wallet?email="+email);
 const data=await res.json();
 result.textContent=JSON.stringify(data,null,2);
+};
+
+transferForm.onsubmit=async(e)=>{
+    e.preventDefault();
+
+    const data={
+        from:fromEmail.value,
+        to:toEmail.value,
+        amount:Number(amount.value)
+    };
+
+    const r=await call("/transfer",data);
+
+    result.textContent=JSON.stringify(r,null,2);
 };
 </script>
 </body>
