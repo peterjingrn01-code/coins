@@ -190,6 +190,12 @@ transferForm.onsubmit=async(e)=>{
     const r=await call("/transfer",data);
     result.textContent=JSON.stringify(r,null,2);
 };
+  loadHistory.onclick=async()=>{
+  historyResult.textContent="Loading history...";
+  const res=await fetch(API+"/transactions");
+  const data=await res.json();
+  historyResult.textContent=JSON.stringify(data,null,2);
+};
 </script>
 </body>
 </html>
