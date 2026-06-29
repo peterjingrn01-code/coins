@@ -3,33 +3,121 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>JSLΩ Coin Account</title>
+<title>JSLCoins Account</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#fff;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,"Noto Sans",sans-serif}.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 16px}.card{width:100%;max-width:520px;border:1px solid #e5e7eb;border-radius:24px;box-shadow:0 8px 28px rgba(0,0,0,.08);padding:24px}.brand{text-align:center;font-size:34px;font-weight:800;letter-spacing:-1px}.sub{text-align:center;color:#6b7280;margin-top:7px}.tabs{display:flex;gap:10px;margin-top:22px}.tabs button{flex:1;border:1px solid #d1d5db;background:#fff;border-radius:999px;padding:11px;font-weight:700;cursor:pointer}.tabs button.active{background:#111827;color:#fff;border-color:#111827}.form{margin-top:18px;display:none}.form.active{display:block}.field{margin-top:12px}.field label{display:block;font-size:13px;color:#4b5563;margin-bottom:5px}.field input{width:100%;border:1px solid #d1d5db;border-radius:14px;padding:12px 13px;font-size:15px}.primary{margin-top:16px;width:100%;border:0;background:#111827;color:#fff;border-radius:14px;padding:13px;font-size:15px;font-weight:800;cursor:pointer}.panel{margin-top:18px;padding:14px;border-radius:18px;background:#f9fafb;border:1px solid #e5e7eb;color:#374151;font-size:14px;line-height:1.55}.row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #e5e7eb;padding:8px 0}.row:last-child{border-bottom:0}.small{font-size:12px;color:#6b7280}.home{display:block;text-align:center;margin-top:16px;color:#2563eb;text-decoration:none;font-weight:650}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#202124;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:100%;max-width:460px;border:1px solid #e5e7eb;border-radius:22px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.08)}
+.brand{text-align:center;font-size:28px;font-weight:700;margin-bottom:6px}
+.sub{text-align:center;color:#6b7280;margin-bottom:22px}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tabs button{flex:1;border:1px solid #e5e7eb;background:#f9fafb;padding:12px;border-radius:12px;font-weight:600}
+.tabs button.active{background:#111827;color:#fff}
+form{display:none}
+form.active{display:block}
+input{width:100%;padding:14px;border:1px solid #d1d5db;border-radius:12px;margin:8px 0;font-size:16px}
+.action{width:100%;padding:14px;border:0;border-radius:12px;background:#111827;color:#fff;font-size:16px;font-weight:700;margin-top:10px}
+.result{margin-top:18px;padding:14px;border-radius:14px;background:#f3f4f6;color:#111827;white-space:pre-wrap;font-size:14px}
+.links{text-align:center;margin-top:18px}
+.links a{color:#2563eb;text-decoration:none;margin:0 8px}
 </style>
 </head>
 <body>
-<div class="page"><section class="card">
-  <div class="brand">JSLΩ Coin</div>
-  <div class="sub">User Account → Ω Wallet</div>
-  <div class="tabs"><button id="signinTab">Coin Sign In</button><button id="signupTab">Coin Sign Up</button></div>
-  <form id="signin" class="form"><div class="field"><label>Email or Ω ID</label><input required placeholder="user@example.com"></div><div class="field"><label>Password</label><input type="password" required placeholder="Password"></div><button class="primary" type="submit">Sign In</button></form>
-  <form id="signup" class="form"><div class="field"><label>Account name</label><input id="name" required placeholder="Your name"></div><div class="field"><label>Email</label><input id="email" type="email" required placeholder="user@example.com"></div><div class="field"><label>Password</label><input type="password" required placeholder="Create password"></div><button class="primary" type="submit">Create User Account</button></form>
-  <div id="result" class="panel">
-    <div class="row"><strong>Genesis Owner</strong><span>First account</span></div>
-    <div class="row"><strong>Total Supply</strong><span>1,000,000,000 JSLΩ</span></div>
-    <div class="small">After sign in/sign up, the user can create an Ω Wallet and receive/send JSLΩ inside the test ledger.</div>
-  </div>
-  <a class="home" href="index.html">Back to JSL-ian Home</a>
-</section></div>
+<div class="page">
+<section class="card">
+<div class="brand">JSLCoins</div>
+<div class="sub">Create and access your JSL-ian Account</div>
+
+<div class="tabs">
+<button id="signupTab" class="active">Create Account</button>
+<button id="signinTab">Sign In</button>
+<button id="walletTab">Wallet</button>
+</div>
+
+<form id="signupForm" class="active">
+<input id="signupUsername" required placeholder="Username">
+<input id="signupEmail" required type="email" placeholder="Email">
+<input id="signupPassword" required type="password" placeholder="Password">
+<button class="action" type="submit">Create JSL-ian Account</button>
+</form>
+
+<form id="signinForm">
+<input id="signinEmail" required type="email" placeholder="Email">
+<input id="signinPassword" required type="password" placeholder="Password">
+<button class="action" type="submit">Sign In</button>
+</form>
+
+<form id="walletForm">
+<input id="walletEmail" required type="email" placeholder="Email">
+<button class="action" type="submit">Open Wallet</button>
+</form>
+
+<div id="result" class="result">Ready.</div>
+
+<div class="links">
+<a href="index.html">Home</a>
+<a href="https://api.jsl-ian.com" target="_blank">API</a>
+</div>
+</section>
+</div>
+
 <script>
-const signin=document.getElementById('signin'), signup=document.getElementById('signup'), signinTab=document.getElementById('signinTab'), signupTab=document.getElementById('signupTab'), result=document.getElementById('result');
-function show(which){const s=which==='signup'; signin.classList.toggle('active',!s); signup.classList.toggle('active',s); signinTab.classList.toggle('active',!s); signupTab.classList.toggle('active',s)}
-signinTab.onclick=()=>show('signin'); signupTab.onclick=()=>show('signup'); show(location.hash==='#signup'?'signup':'signin');
-function omegaId(){return 'Ω-'+new Date().getFullYear()+'-'+Math.random().toString(16).slice(2,10).toUpperCase()}
-function wallet(){return 'ΩW-'+Math.random().toString(16).slice(2,6).toUpperCase()+'-'+Math.random().toString(16).slice(2,6).toUpperCase()+'-'+Math.random().toString(16).slice(2,6).toUpperCase()}
-signup.addEventListener('submit',e=>{e.preventDefault();const owner=!localStorage.getItem('jsl_genesis_owner');const id=omegaId();const w=wallet();if(owner)localStorage.setItem('jsl_genesis_owner',id);result.innerHTML='<div class="row"><strong>Account</strong><span>'+id+'</span></div><div class="row"><strong>Ω Wallet</strong><span>'+w+'</span></div><div class="row"><strong>Role</strong><span>'+(owner?'Genesis Owner':'User')+'</span></div><button class="primary" onclick="alert(\'Ω Wallet created for test ledger.\')">Create / Open Ω Wallet</button>';});
-signin.addEventListener('submit',e=>{e.preventDefault();result.innerHTML='<div class="row"><strong>Status</strong><span>Signed in</span></div><div class="row"><strong>Ω Wallet</strong><span>Ready</span></div><button class="primary" onclick="alert(\'Open Ω Wallet.\')">Open Ω Wallet</button>';});
+const API="https://api.jsl-ian.com";
+const result=document.getElementById("result");
+
+function show(tab){
+for(const id of ["signup","signin","wallet"]){
+document.getElementById(id+"Form").classList.remove("active");
+document.getElementById(id+"Tab").classList.remove("active");
+}
+document.getElementById(tab+"Form").classList.add("active");
+document.getElementById(tab+"Tab").classList.add("active");
+result.textContent="Ready.";
+}
+
+signupTab.onclick=()=>show("signup");
+signinTab.onclick=()=>show("signin");
+walletTab.onclick=()=>show("wallet");
+
+async function call(path,data){
+const res=await fetch(API+path,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+});
+return await res.json();
+}
+
+signupForm.onsubmit=async e=>{
+e.preventDefault();
+result.textContent="Creating account...";
+const data=await call("/register",{
+username:signupUsername.value,
+email:signupEmail.value,
+password:signupPassword.value
+});
+result.textContent=JSON.stringify(data,null,2);
+};
+
+signinForm.onsubmit=async e=>{
+e.preventDefault();
+result.textContent="Signing in...";
+const data=await call("/login",{
+email:signinEmail.value,
+password:signinPassword.value
+});
+result.textContent=JSON.stringify(data,null,2);
+};
+
+walletForm.onsubmit=async e=>{
+e.preventDefault();
+result.textContent="Opening wallet...";
+const email=encodeURIComponent(walletEmail.value);
+const res=await fetch(API+"/wallet?email="+email);
+const data=await res.json();
+result.textContent=JSON.stringify(data,null,2);
+};
 </script>
 </body>
 </html>
