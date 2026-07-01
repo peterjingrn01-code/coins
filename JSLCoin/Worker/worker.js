@@ -4,7 +4,7 @@ const CORS = {
   'access-control-allow-headers': 'content-type'
 };
 const KEY = 'JSLCoin_STATE_v3';
-const freshState = () => ({coin:'JSLCoin',version:'3.0',genesis:false,totalSupply:0,circulating:0,treasury:0,users:{},ledger:[]});
+const freshState = () => ({coin:'JSLCoin',version:'3.1',genesis:false,totalSupply:0,circulating:0,treasury:0,users:{},ledger:[]});
 function json(data,status=200){return new Response(JSON.stringify(data,null,2),{status,headers:{...CORS,'content-type':'application/json'}})}
 async function readState(env){
   if(!env.DB) return freshState();
@@ -42,6 +42,15 @@ export default { async fetch(req, env) {
       needGenesis(state); const b = await body(req); const name = String(b.user||b.name||'').trim(); if(!name) throw new Error('Enter user name');
       if(!state.users[name]){ state.users[name] = {balance:0,createdAt:new Date().toISOString()}; tx(state,'REGISTER','USER',name,0); await writeState(env,state); }
       return json({ok:true,message:'Registered: '+name,user:name,balance:state.users[name].balance});
+    }
+    if(path === '/login'){
+      needGenesis(state); const b = await body(req); const name = String(b.user||b.name||'').trim();
+      if(!name) throw new Error('Enter user name');
+      if(!state.users[name]) throw new Error('User not registered');
+      return json({ok:true,message:'Logged in: '+name,user:name,balance:state.users[name].balance});
+    }
+    if(path === '/logout'){
+      return json({ok:true,message:'Logged out'});
     }
     if(path === '/buy'){
       needGenesis(state); const b = await body(req); const user=String(b.user||'').trim(); const amount=Number(b.amount||0);

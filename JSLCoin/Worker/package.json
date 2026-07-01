@@ -1,1 +1,1 @@
-{"name":"jslcoin-worker-v3","version":"3.0.0","type":"module","scripts":{"deploy":"wrangler deploy"},"devDependencies":{"wrangler":"latest"}}
+{"name":"jslcoin-worker-v31","version":"3.1.0","type":"module","scripts":{"deploy":"wrangler deploy"},"devDependencies":{"wrangler":"latest"}}
