@@ -1,11 +1,16 @@
-# JSLCoin v2.0 Final
+# JSLCoin Activated 0.1
 
-Clean deploy package for `jslcoin.jsl-ian.com`.
+Frontend wired to existing Worker API on the same domain.
 
-## Files
-- `index.html` — clean JSLCoin homepage, logo embedded directly in source.
-- `ownerpage.html` — Owner Console placeholder.
-- `userpage.html` — User Console placeholder.
+Upload all files into `coins/JSLCoin/` and keep existing `Worker/worker.js`.
 
-## Deploy
-Upload/replace these files in `coins/JSLCoin/`, commit, then redeploy the Cloudflare Worker/Pages project if needed.
+Expected API routes:
+GET /status
+GET /transactions
+POST /genesis
+POST /issue
+POST /register
+POST /buy
+POST /sell
+POST /send
+POST /pair-confirm
