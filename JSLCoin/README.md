@@ -1,16 +1,9 @@
-# JSLCoin Activated 0.1
+# JSLCoin Frontend 2.0
 
-Frontend wired to existing Worker API on the same domain.
+Frontend package for `jslcoin.jsl-ian.com`.
 
-Upload all files into `coins/JSLCoin/` and keep existing `Worker/worker.js`.
+API target is configured in `app.js`:
 
-Expected API routes:
-GET /status
-GET /transactions
-POST /genesis
-POST /issue
-POST /register
-POST /buy
-POST /sell
-POST /send
-POST /pair-confirm
+`https://jslcoin-api.peterjingrn01.workers.dev`
+
+Upload these files into `coins/JSLCoin/` and keep the working `jslcoin-api` Worker unchanged.
