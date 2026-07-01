@@ -1,8 +1,9 @@
-name = "jslcoin-api"
+name = "jslcoin"
 main = "worker.js"
 compatibility_date = "2026-07-01"
-compatibility_flags = ["nodejs_compat"]
+workers_dev = true
 
-# After deployment, bind this Worker to api.jsl-ian.com in Cloudflare.
-# Routes can also be added in Cloudflare dashboard.
-# route = { pattern = "api.jsl-ian.com/*", zone_name = "jsl-ian.com" }
+[assets]
+directory = "../"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
