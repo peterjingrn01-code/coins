@@ -1,8 +1,10 @@
-# JSLCoin 3.0
+# JSLCoin 3.1 Login Edition
 
-Persistent JSLCoin Alpha package.
+Persistent JSLCoin Alpha package with Login / Logout and current-user session.
 
-Upload frontend files into `coins / JSLCoin /`:
+Upload all files into `coins / JSLCoin /`, replacing existing files.
+
+Frontend files:
 - index.html
 - ownerpage.html
 - userpage.html
@@ -10,23 +12,25 @@ Upload frontend files into `coins / JSLCoin /`:
 - transactions.html
 - style.css
 - app.js
+- logo.png
 
-Upload Worker files into `coins / JSLCoin / Worker /`:
+Worker files in `coins / JSLCoin / Worker /`:
 - worker.js
 - wrangler.toml
 - package.json
 
 Cloudflare:
 - Worker project: `jslcoin`
-- Custom Worker domain/API: `https://jslcoin.jsl-ian.com`
-- Frontend domain: `https://coins.jsl-ian.com/JSLCoin/`
+- API domain: `https://jslcoin.jsl-ian.com`
+- Frontend: `https://coins.jsl-ian.com/JSLCoin/`
 - KV namespace: `JSLCoin_DB`
-- Binding variable name: `DB`
+- Binding variable: `DB`
+- Namespace ID included in `Worker/wrangler.toml`
 
-If Dashboard binding fails on mobile, deploy from GitHub with `wrangler.toml`, replacing the KV namespace id.
-
-
-## Branding and links added
-- `logo.png` is included in the frontend folder.
-- Logo links to `https://www.jsl-ian.com`.
-- Footer links include JSL-ian Home, Coins Portal, and JSLCoin API Status.
+New in 3.1:
+- Login
+- Logout
+- Current User
+- Auto-login after Register
+- Buy / Sell / Send / Pair Confirm use current logged-in user
+- User balances visible on User and Dashboard
