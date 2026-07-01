@@ -1,10 +1,11 @@
-# JSL Coin Network v1.1 Final - Genesis Edition
+# JSLCoin v2.0 Final
 
-## Deploy order
-1. Cloudflare Worker: replace the real `worker.js` with this package's `worker.js`, then Deploy.
-2. Test: `https://api.jsl-ian.com/status`
-3. Test Genesis: `https://api.jsl-ian.com/genesis`
-4. GitHub: upload/replace `index.html`, `ownerpage.html`, `userpage.html`.
+Clean deploy package for `jslcoin.jsl-ian.com`.
 
-## Important
-When `/genesis` returns an `owner_key`, save it. Owner issue operations require this key.
+## Files
+- `index.html` — clean JSLCoin homepage, logo embedded directly in source.
+- `ownerpage.html` — Owner Console placeholder.
+- `userpage.html` — User Console placeholder.
+
+## Deploy
+Upload/replace these files in `coins/JSLCoin/`, commit, then redeploy the Cloudflare Worker/Pages project if needed.
