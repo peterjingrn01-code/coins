@@ -2,7 +2,13 @@ const API = '';
 async function api(path, data){
   const opt = data===undefined ? {} : {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)};
   const r = await fetch(API + path, opt);
-  let j; try{ j=await r.json(); }catch(e){ j={ok:false,error:await r.text()}; }
+  const txt = await r.text();
+let j;
+try{
+  j = txt ? JSON.parse(txt) : {};
+}catch(e){
+  j = {ok:false,error:txt};
+}
   if(!r.ok || j.ok===false) throw new Error(j.error || ('HTTP '+r.status));
   return j;
 }
