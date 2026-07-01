@@ -8,4 +8,4 @@ workers_dev = true
 # If using Dashboard Binding, variable name must be DB.
 [[kv_namespaces]]
 binding = "DB"
-id = "REPLACE_WITH_JSLCoin_DB_NAMESPACE_ID"
+id = "7944d5e70e8e472eb58686570e749c96"
