@@ -1,4 +1,4 @@
-const API = '';
+const API = "https://jslcoin-api.peterjingrn01.workers.dev";
 async function api(path, data){
   const opt = data===undefined ? {} : {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)};
   const r = await fetch(API + path, opt);
