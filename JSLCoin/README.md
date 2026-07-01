@@ -1,9 +1,32 @@
-# JSLCoin Frontend 2.0
+# JSLCoin 3.0
 
-Frontend package for `jslcoin.jsl-ian.com`.
+Persistent JSLCoin Alpha package.
 
-API target is configured in `app.js`:
+Upload frontend files into `coins / JSLCoin /`:
+- index.html
+- ownerpage.html
+- userpage.html
+- dashboard.html
+- transactions.html
+- style.css
+- app.js
 
-`https://jslcoin-api.peterjingrn01.workers.dev`
+Upload Worker files into `coins / JSLCoin / Worker /`:
+- worker.js
+- wrangler.toml
+- package.json
 
-Upload these files into `coins/JSLCoin/` and keep the working `jslcoin-api` Worker unchanged.
+Cloudflare:
+- Worker project: `jslcoin`
+- Custom Worker domain/API: `https://jslcoin.jsl-ian.com`
+- Frontend domain: `https://coins.jsl-ian.com/JSLCoin/`
+- KV namespace: `JSLCoin_DB`
+- Binding variable name: `DB`
+
+If Dashboard binding fails on mobile, deploy from GitHub with `wrangler.toml`, replacing the KV namespace id.
+
+
+## Branding and links added
+- `logo.png` is included in the frontend folder.
+- Logo links to `https://www.jsl-ian.com`.
+- Footer links include JSL-ian Home, Coins Portal, and JSLCoin API Status.
