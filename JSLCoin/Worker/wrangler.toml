@@ -3,9 +3,6 @@ main = "worker.js"
 compatibility_date = "2026-07-01"
 workers_dev = true
 
-# After creating Cloudflare KV namespace JSLCoin_DB,
-# replace id below with your real namespace ID if deploying from CLI.
-# If using Dashboard Binding, variable name must be DB.
 [[kv_namespaces]]
 binding = "DB"
 id = "7944d5e70e8e472eb58686570e749c96"
