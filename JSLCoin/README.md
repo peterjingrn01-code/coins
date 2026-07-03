@@ -1,36 +1,28 @@
-# JSLCoin 3.1 Login Edition
+# JSLCoin 4.0 Official
 
-Persistent JSLCoin Alpha package with Login / Logout and current-user session.
+First commercially functioning JSLCoin product package for JSL-ian Technologies.
 
-Upload all files into `coins / JSLCoin /`, replacing existing files.
+## Included
+- Owner Login / Logout
+- User Register / Login / Logout
+- Session token security
+- Password hashing in Cloudflare Worker
+- Owner-only Genesis and Issue
+- User-only Buy / Sell / Send / Pair Confirm
+- Persistent KV ledger and balances
+- Dashboard and Ledger tables
+- JSL-ian logo and links
 
-Frontend files:
-- index.html
-- ownerpage.html
-- userpage.html
-- dashboard.html
-- transactions.html
-- style.css
-- app.js
-- logo.png
+## Deployment
+Upload/overwrite all files in `coins / JSLCoin /`.
+Keep the Cloudflare Worker project name `jslcoin`.
+KV binding must be:
 
-Worker files in `coins / JSLCoin / Worker /`:
-- worker.js
-- wrangler.toml
-- package.json
+```toml
+[[kv_namespaces]]
+binding = "DB"
+id = "7944d5e70e8e472eb58686570e749c96"
+```
 
-Cloudflare:
-- Worker project: `jslcoin`
-- API domain: `https://jslcoin.jsl-ian.com`
-- Frontend: `https://coins.jsl-ian.com/JSLCoin/`
-- KV namespace: `JSLCoin_DB`
-- Binding variable: `DB`
-- Namespace ID included in `Worker/wrangler.toml`
-
-New in 3.1:
-- Login
-- Logout
-- Current User
-- Auto-login after Register
-- Buy / Sell / Send / Pair Confirm use current logged-in user
-- User balances visible on User and Dashboard
+Frontend: `https://coins.jsl-ian.com/JSLCoin/`
+API: `https://jslcoin.jsl-ian.com/status`
