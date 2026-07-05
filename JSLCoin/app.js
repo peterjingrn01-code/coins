@@ -1,69 +1,18 @@
-const API = 'https://jslcoin.jsl-ian.com';
-const USER_TOKEN_KEY = 'JSLCoin_user_token_v40';
-const USER_NAME_KEY = 'JSLCoin_user_name_v40';
-const OWNER_TOKEN_KEY = 'JSLCoin_owner_token_v40';
-const OWNER_NAME_KEY = 'JSLCoin_owner_name_v40';
-
-const $=id=>document.getElementById(id);
-const num=n=>Number(n||0).toLocaleString();
-function get(k){return localStorage.getItem(k)||''}
-function put(k,v){v?localStorage.setItem(k,v):localStorage.removeItem(k)}
-function msg(t,ok=true){const m=$('msg');if(m){m.textContent=t;m.className=ok?'msg ok':'msg bad'}}
-function set(id,v){const e=$(id); if(e)e.textContent=v}
-function val(id){const e=$(id); return e?e.value.trim():''}
-function amount(){const n=Number(val('amount')||val('issueAmount')||0); if(!Number.isFinite(n)||n<=0) throw new Error('Invalid amount'); return n;}
-async function api(path,data,token){
-  const headers={'content-type':'application/json'};
-  if(token) headers.authorization='Bearer '+token;
-  const opt=data===undefined?{headers}:{method:'POST',headers,body:JSON.stringify(data)};
-  const r=await fetch(API+path,opt);
-  const txt=await r.text(); let j;
-  try{j=txt?JSON.parse(txt):{}}catch(e){j={ok:false,error:txt}}
-  if(!r.ok||j.ok===false)throw new Error(j.error||('HTTP '+r.status));
-  return j;
-}
-function userToken(){return get(USER_TOKEN_KEY)}
-function ownerToken(){return get(OWNER_TOKEN_KEY)}
-function setUserSession(j){put(USER_TOKEN_KEY,j.token); put(USER_NAME_KEY,j.user); renderSession();}
-function setOwnerSession(j){put(OWNER_TOKEN_KEY,j.token); put(OWNER_NAME_KEY,j.user||'owner'); renderSession();}
-function clearUser(){put(USER_TOKEN_KEY,''); put(USER_NAME_KEY,''); renderSession();}
-function clearOwner(){put(OWNER_TOKEN_KEY,''); put(OWNER_NAME_KEY,''); renderSession();}
-function renderSession(){
-  const user=get(USER_NAME_KEY), owner=get(OWNER_NAME_KEY);
-  set('currentUser',user||'Not logged in');
-  set('currentOwner',owner||'Not logged in');
-  set('sessionBadge',user?('Logged in: '+user):'Not logged in');
-  set('ownerBadge',owner?('Owner session active'):'Owner not logged in');
-  const u=$('loginUserName'); if(u && user) u.value=user;
-}
-async function refresh(){
-  renderSession();
-  try{
-    const s=await api('/status');
-    set('version',s.version||'—'); set('genesis',String(s.genesis)); set('totalSupply',num(s.totalSupply)); set('circulatingSupply',num(s.circulating)); set('treasury',num(s.treasury)); set('users',num(s.users)); set('ledgerCount',num(s.ledgerCount)); set('ownerReady',String(s.ownerReady)); set('db',String(s.db));
-    await loadLedger(); await loadBalances();
-  }catch(e){msg(e.message,false)}
-}
-async function loadLedger(){
-  const el=$('ledgerRows'); if(!el) return;
-  const j=await api('/transactions');
-  el.innerHTML=(j.transactions||[]).map(x=>`<tr><td>${x.id}</td><td>${x.type}</td><td>${x.from}</td><td>${x.to}</td><td>${num(x.amount)}</td><td>${x.status}</td><td>${x.note||''}</td><td>${x.time}</td></tr>`).join('') || '<tr><td colspan="8">No ledger records</td></tr>';
-}
-async function loadBalances(){
-  const el=$('balanceRows'); if(!el) return;
-  const j=await api('/balances'); const users=j.users||{}; const current=get(USER_NAME_KEY);
-  el.innerHTML=Object.keys(users).sort().map(k=>`<tr><td>${k}${k===current?' ★':''}</td><td>${num(users[k].balance)}</td><td>${users[k].email||''}</td><td>${users[k].walletKey||''}</td><td>${users[k].created||''}</td></tr>`).join('') || '<tr><td colspan="5">No users</td></tr>';
-  if(current && users[current]) set('myBalance',num(users[current].balance)); else set('myBalance','—');
-}
-async function ownerLogin(){try{const j=await api('/owner-login',{email:val('ownerEmail'),walletKey:val('ownerWalletKey'),password:val('ownerPassword')}); setOwnerSession(j); msg(j.message||'Owner logged in'); await refresh();}catch(e){msg(e.message,false)}}
-async function ownerLogout(){try{await api('/logout',{},ownerToken()); clearOwner(); msg('Owner logged out'); await refresh();}catch(e){clearOwner(); msg('Owner logged out')}}
-async function ownerGenesis(){try{const j=await api('/genesis',{},ownerToken()); msg(j.message||'Genesis completed'); await refresh();}catch(e){msg(e.message,false)}}
-async function ownerIssue(){try{const j=await api('/issue',{amount:Number(val('issueAmount')||1000000000)},ownerToken()); msg(j.message||'Issue completed'); await refresh();}catch(e){msg(e.message,false)}}
-async function registerUser(){try{const j=await api('/register',{user:val('regUser'),email:val('regEmail'),walletKey:val('regWalletKey'),password:val('regPassword')}); setUserSession(j); msg(j.message||'Registered'); await refresh();}catch(e){msg(e.message,false)}}
-async function loginUser(){try{const j=await api('/login',{login:val('loginUserName'),password:val('loginPassword')}); setUserSession(j); msg(j.message||'Logged in'); await refresh();}catch(e){msg(e.message,false)}}
-async function logoutUser(){try{await api('/logout',{},userToken()); clearUser(); msg('Logged out'); await refresh();}catch(e){clearUser(); msg('Logged out')}}
-async function buyCoin(){try{const j=await api('/buy',{amount:amount()},userToken()); msg(j.message||'Buy completed'); await refresh();}catch(e){msg(e.message,false)}}
-async function sellCoin(){try{const j=await api('/sell',{amount:amount()},userToken()); msg(j.message||'Sell completed'); await refresh();}catch(e){msg(e.message,false)}}
-async function sendCoin(){try{const j=await api('/send',{to:val('toUser'),amount:amount()},userToken()); msg(j.message||'Send completed'); await refresh();}catch(e){msg(e.message,false)}}
-async function pairConfirm(){try{const j=await api('/pair-confirm',{to:val('toUser')},userToken()); msg(j.message||'Pair confirmed'); await refresh();}catch(e){msg(e.message,false)}}
-window.addEventListener('load',refresh);
+const API='/api';
+function token(){return localStorage.getItem('jsl_token')||''}
+function setToken(t){localStorage.setItem('jsl_token',t)}
+function logout(){localStorage.removeItem('jsl_token');location.href='login.html'}
+async function req(path,opts={}){opts.headers={...(opts.headers||{}),'Content-Type':'application/json','Authorization':'Bearer '+token()}; if(opts.body&&typeof opts.body!=='string')opts.body=JSON.stringify(opts.body); const r=await fetch(API+path,opts); const j=await r.json().catch(()=>({})); if(!r.ok)throw new Error(j.error||'Request failed'); return j}
+function money(n){return Number(n||0).toLocaleString(undefined,{maximumFractionDigits:8})+' JSL'}
+async function login(){const id=document.getElementById('identity').value.trim(); const phone=document.getElementById('phone').value.trim(); const name=document.getElementById('name').value.trim(); const password=document.getElementById('password').value; try{const j=await req('/auth/login',{method:'POST',body:{identity:id,phone,name,password}}); setToken(j.token); location.href='dashboard.html'}catch(e){alert(e.message)}}
+async function me(){return await req('/me')}
+async function loadDashboard(){try{const j=await me(); document.getElementById('who').textContent=j.user.email||j.user.phone; document.getElementById('wallet').textContent=j.wallet.address; document.getElementById('balance').textContent=money(j.wallet.balance); document.getElementById('ownerBadge').textContent=j.user.isOwner?'OWNER':'USER'; document.getElementById('omega').textContent=window.JSLCONFIG.OMEGA_ENDPOINT; const tx=await req('/transactions'); renderTx(tx.transactions.slice(0,10),'txbody')}catch(e){location.href='login.html'}}
+async function loadWallet(){try{const j=await me(); document.getElementById('addr').textContent=j.wallet.address; document.getElementById('pub').textContent=j.wallet.publicKey; document.getElementById('bal').textContent=money(j.wallet.balance)}catch(e){location.href='login.html'}}
+async function sendCoin(){const to=document.getElementById('to').value.trim(); const amount=Number(document.getElementById('amount').value); try{const j=await req('/transfer',{method:'POST',body:{to,amount}}); alert('Transaction confirmed: '+j.tx.id); location.reload()}catch(e){alert(e.message)}}
+async function loadTransactions(){try{const j=await req('/transactions'); renderTx(j.transactions,'txbody')}catch(e){location.href='login.html'}}
+function renderTx(list,id){const b=document.getElementById(id); if(!b)return; b.innerHTML=list.map(t=>`<tr><td>${new Date(t.time).toLocaleString()}</td><td>${t.type}</td><td>${money(t.amount)}</td><td>${short(t.from)}</td><td>${short(t.to)}</td><td class="ok">${t.status}</td></tr>`).join('')||'<tr><td colspan="6">No transactions yet.</td></tr>'}
+function short(s){return !s?'SYSTEM':s.length>18?s.slice(0,10)+'…'+s.slice(-6):s}
+async function loadOwner(){try{const j=await req('/owner'); document.getElementById('owner').textContent=j.owner; document.getElementById('supply').textContent=money(j.totalSupply); document.getElementById('users').textContent=j.users.length; document.getElementById('wallets').textContent=j.wallets.length; document.getElementById('omega').textContent=j.omegaEndpoint; document.getElementById('tbody').innerHTML=j.users.map(u=>`<tr><td>${u.email||''}</td><td>${u.phone||''}</td><td>${u.name||''}</td><td>${u.isOwner?'OWNER':'USER'}</td><td>${money((j.wallets.find(w=>w.userId===u.id)||{}).balance)}</td></tr>`).join('')}catch(e){alert(e.message);location.href='dashboard.html'}}
+async function mint(){const to=document.getElementById('mintTo').value.trim(); const amount=Number(document.getElementById('mintAmount').value); try{await req('/owner/mint',{method:'POST',body:{to,amount}}); location.reload()}catch(e){alert(e.message)}}
+async function burn(){const amount=Number(document.getElementById('burnAmount').value); try{await req('/owner/burn',{method:'POST',body:{amount}}); location.reload()}catch(e){alert(e.message)}}
+async function omegaCheck(){try{const j=await req('/omega/check',{method:'POST',body:{note:'JSLCoin 5.0 Omega closure placeholder'}}); alert('Omega endpoint configured: '+j.endpoint+'\nStatus: '+j.status)}catch(e){alert(e.message)}}
