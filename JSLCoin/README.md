@@ -1,15 +1,4 @@
-# JSLCoin Omega 5.0 Fixed Release
-
-Deploy this `JSLCoin/` folder to `coins/JSLCoin/`.
-
-Fixed in this build:
-- Owner/User role separation.
-- Owner-only console protection.
-- Transfer balance recalculation after SEND.
-- Genesis owner: jingxingwei@hotmail.com.
-- Initial supply: 1,000,000,000 JSL.
-- Worker folder included.
-- Single UI/navigation.
-
-Test URL:
-https://coins.jsl-ian.com/JSLCoin/
+JSLCoin Omega 5.0 JSL Full Delivery
+Upload the JSLCoin folder to coins/JSLCoin/.
+Main URL: https://coins.jsl-ian.com/JSLCoin/
+Includes omega5.jsl, JSL runtime, Worker folder, wallet login link, owner/user separation, balance recalculation.
