@@ -1,28 +1,15 @@
-# JSLCoin 4.0 Official
+# JSLCoin Omega 5.0 Fixed Release
 
-First commercially functioning JSLCoin product package for JSL-ian Technologies.
+Deploy this `JSLCoin/` folder to `coins/JSLCoin/`.
 
-## Included
-- Owner Login / Logout
-- User Register / Login / Logout
-- Session token security
-- Password hashing in Cloudflare Worker
-- Owner-only Genesis and Issue
-- User-only Buy / Sell / Send / Pair Confirm
-- Persistent KV ledger and balances
-- Dashboard and Ledger tables
-- JSL-ian logo and links
+Fixed in this build:
+- Owner/User role separation.
+- Owner-only console protection.
+- Transfer balance recalculation after SEND.
+- Genesis owner: jingxingwei@hotmail.com.
+- Initial supply: 1,000,000,000 JSL.
+- Worker folder included.
+- Single UI/navigation.
 
-## Deployment
-Upload/overwrite all files in `coins / JSLCoin /`.
-Keep the Cloudflare Worker project name `jslcoin`.
-KV binding must be:
-
-```toml
-[[kv_namespaces]]
-binding = "DB"
-id = "7944d5e70e8e472eb58686570e749c96"
-```
-
-Frontend: `https://coins.jsl-ian.com/JSLCoin/`
-API: `https://jslcoin.jsl-ian.com/status`
+Test URL:
+https://coins.jsl-ian.com/JSLCoin/
