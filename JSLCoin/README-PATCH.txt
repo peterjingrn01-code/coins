@@ -1,0 +1,1 @@
+Patch only: upload these files into coins/JSLCoin/ and overwrite existing files. Public page has no owner info. User pages have no owner links. Owner pages are independent. Dashboard shows display name only. Transactions are current-user only. Layout fixed for mobile/full-width tables.
