@@ -1,5 +1,5 @@
-(function(){
-  function findWallet(s,target){target=String(target||'').trim().toLowerCase(); return Object.values(s.users).find(u=>u.wallet.toLowerCase()===target||u.email.toLowerCase()===target||String(u.phone||'').toLowerCase()===target);}
-  function owner(s){return s.users[s.ownerEmail];}
-  window.JSLWallet={findWallet,owner};
-})();
+// JSLCoin Omega 5.0 Worker/wallet.js
+// JSL-ian worker module placeholder for browser/static deployment.
+export const moduleName = 'wallet';
+export const omegaEndpoint = 'https://omega.jsl-ian.com';
+export function closure(){ return 'L^n=-1'; }

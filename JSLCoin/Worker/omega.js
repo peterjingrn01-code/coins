@@ -1,1 +1,5 @@
-(function(){function check(){const s=JSLApi.load(); return {endpoint:s.omegaEndpoint,closure:'Ω → Ledger → Balance → Ω',status:'ready',time:JSLApi.now()};} window.JSLOmega={check};})();
+// JSLCoin Omega 5.0 Worker/omega.js
+// JSL-ian worker module placeholder for browser/static deployment.
+export const moduleName = 'omega';
+export const omegaEndpoint = 'https://omega.jsl-ian.com';
+export function closure(){ return 'L^n=-1'; }
