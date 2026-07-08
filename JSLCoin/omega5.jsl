@@ -1,6 +1,6 @@
 Ω coin Omega5.0
-version = 5.0
-codename = Genesis
+version = 5.0-stable-upgrade
+base = JSLCoin 4.0 stable link map
 owner = jingxingwei@hotmail.com
 supply = 1000000000 JSL
 omega_link = https://omega.jsl-ian.com
@@ -16,11 +16,10 @@ role owner {
   allow wallet
   allow send
   allow receive
-  allow history
+  allow ledger
   allow mint
   allow burn
   allow user_manage
-  allow treasury
   allow omega_link
 }
 
@@ -29,7 +28,7 @@ role user {
   allow wallet
   allow send
   allow receive
-  allow history
+  allow ledger
   deny mint
   deny burn
   deny user_manage
@@ -39,6 +38,7 @@ transfer {
   require amount > 0
   require sender_balance >= amount
   ledger write
-  balance update
+  balance recalculate
+  dashboard refresh
   closure = L^n = -1
 }

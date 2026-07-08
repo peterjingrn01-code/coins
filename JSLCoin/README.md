@@ -1,4 +1,4 @@
-JSLCoin Omega 5.0 JSL Full Delivery
-Upload the JSLCoin folder to coins/JSLCoin/.
+JSLCoin Omega 5.0 Stable Upgrade
+Upload this JSLCoin folder to coins/JSLCoin/.
 Main URL: https://coins.jsl-ian.com/JSLCoin/
-Includes omega5.jsl, JSL runtime, Worker folder, wallet login link, owner/user separation, balance recalculation.
+This build keeps the 4.0 link map, adds Wallet Login, JSL code layer, Owner/User separation, Ledger, and Balance recalculation.
