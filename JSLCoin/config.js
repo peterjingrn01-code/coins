@@ -1,1 +1,1 @@
-window.JSL_CONFIG=Object.freeze({API_BASE:"https://jslcoin-api.peterjingrn01.workers.dev",VERSION:"6.0 Clean"});
+window.JSL_CONFIG={API_BASE:"https://jslcoin-api.peterjingrn01.workers.dev"};
