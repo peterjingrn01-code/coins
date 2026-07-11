@@ -1,8 +1,3 @@
-name = "jslcoin"
-main = "worker.js"
-compatibility_date = "2026-07-01"
-workers_dev = true
-
-[[kv_namespaces]]
-binding = "DB"
-id = "7944d5e70e8e472eb58686570e749c96"
+name="jslcoin-api"
+main="worker.js"
+compatibility_date="2026-07-11"
