@@ -1,3 +1,13 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wallet</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="brand" href="index.html"><span class="logo">Ω</span><span>Wallet<small>JSLCoin Omega 5.0</small></span></a><nav class="nav"><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a><a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a><a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a><a href="#" onclick="JSLApp.logout()">Logout</a></nav></header><main class="wrap">
-<div class="grid"><section class="card span6"><h1>Wallet</h1><p><b>User:</b> <span id="walletName">—</span></p><p><b>Address:</b> <span id="walletAddress">—</span></p><p><b>Balance:</b> <span id="walletBalance">—</span></p><p><button class="btn" onclick="JSLApp.copyWallet()">Copy Wallet</button></p><div id="msg"></div></section><section class="card span6"><h2>Receive</h2><p>Share your wallet address to receive JSL.</p><h2>Send</h2><p><a class="btn primary" href="transfer.html">Transfer JSL</a></p></section></div>
-</main><script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wallet — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Wallet<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
+<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
+<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<section id="walletPage" class="grid"><div class="card stat">Account<strong id="walletName"></strong></div><div class="card stat">Balance<strong id="walletBalance"></strong></div>
+<div class="card stat">Wallet Address<strong id="walletAddress"></strong></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

@@ -1,11 +1,8 @@
-# JSL Coin Network Release Notes
-
-## v1.1 Final — Genesis Edition
-
-- Added Cloudflare Worker backend.
-- Added GENESIS API endpoint.
-- Added D1 auto table initialization.
-- Added Owner Console API connection.
-- Added User Console API connection.
-- Added Treasury, Wallet, Issue, and Transactions endpoints.
-- Project structure prepared for GitHub + Cloudflare deployment.
+# Omega 5.1 Core
+- Removed localStorage balances and ledger
+- Canonical Worker/KV ledger
+- Unified username/email/phone/wallet identity lookup
+- Owner/user permissions
+- Complete forgot/reset password flow
+- Ledger audit endpoint
+- Removed closure column

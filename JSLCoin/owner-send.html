@@ -1,3 +1,13 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Owner Send Coins</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="brand" href="index.html"><span class="logo">Ω</span><span>Owner Send Coins<small>JSLCoin Omega 5.0</small></span></a><nav class="nav"><a href="ownerpage.html">Owner Dashboard</a><a href="owner-userlist.html">User List</a><a href="owner-send.html">Send Coins</a><a href="owner-issue.html">Issue Legal Link</a><a href="ledger.html">Ledger</a><a href="https://omega.jsl-ian.com">Omega Link</a><a href="#" onclick="JSLApp.logout()">Logout</a></nav></header><main class="wrap">
-<section class="card"><h1>Send Coins</h1><label>To username / email / phone / wallet</label><input id="sendTo"><label>Amount</label><input id="sendAmount" type="number"><p><button class="btn good" onclick="JSLApp.ownerSend()">Send Coins</button></p><div id="msg"></div></section>
-</main><script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Owner Send — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Owner Send<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="ownerpage.html">Owner Dashboard</a><a href="owner-userlist.html">User List</a>
+<a href="owner-send.html">Send Coins</a><a href="genesis.html">Genesis</a>
+<a href="ledger.html">Ledger</a><a href="index.html">Public Home</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<section class="card form"><h1>Send Coins</h1><label>Recipient Username / Email / Phone / Wallet</label><input id="to"><label>Amount</label><input id="amount" type="number" min="1">
+<button class="primary" onclick="JSLApp.ownerSend()">Send Coins</button><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

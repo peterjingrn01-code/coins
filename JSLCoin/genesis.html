@@ -1,70 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSLCoin Omega 5.0 — Genesis</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="brand">Ω JSLCoin Owner</div>
-    <nav>
-      <a href="ownerpage.html">Owner Dashboard</a>
-      <a href="owner-users.html">User List</a>
-      <a href="owner-send.html">Send Coins</a>
-      <a href="genesis.html">Genesis</a>
-      <a href="owner-legal.html">Legal Issue Link</a>
-      <a href="ledger.html">Ledger</a>
-      <a href="owner-login.html">Logout</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <section class="card">
-      <h1>Genesis / Start Issue</h1>
-      <p>This page initializes and records the first official JSLCoin Omega issue.</p>
-      <div class="grid">
-        <div class="stat"><span>Genesis Owner</span><strong>jingxingwei@hotmail.com</strong></div>
-        <div class="stat"><span>Initial Supply</span><strong>1,000,000,000 JSL</strong></div>
-        <div class="stat"><span>Status</span><strong id="genesisStatus">Ready</strong></div>
-      </div>
-      <button id="startGenesisBtn" class="primary">Start Genesis Issue</button>
-      <p id="genesisMessage" class="note"></p>
-    </section>
-
-    <section class="card">
-      <h2>Genesis Record</h2>
-      <table>
-        <thead>
-          <tr><th>Type</th><th>Owner</th><th>Amount</th><th>Status</th></tr>
-        </thead>
-        <tbody id="genesisTable">
-          <tr><td>GENESIS</td><td>jingxingwei@hotmail.com</td><td>1,000,000,000 JSL</td><td>Pending Start</td></tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
-  <script>
-    document.getElementById('startGenesisBtn')?.addEventListener('click', function () {
-      try {
-        const record = {
-          type: 'GENESIS',
-          owner: 'jingxingwei@hotmail.com',
-          amount: 1000000000,
-          status: 'confirmed',
-          timestamp: new Date().toISOString()
-        };
-        localStorage.setItem('jslcoin_genesis', JSON.stringify(record));
-        document.getElementById('genesisStatus').textContent = 'Confirmed';
-        document.getElementById('genesisMessage').textContent = 'Genesis issue recorded successfully.';
-        document.getElementById('genesisTable').innerHTML = '<tr><td>GENESIS</td><td>jingxingwei@hotmail.com</td><td>1,000,000,000 JSL</td><td>Confirmed</td></tr>';
-      } catch (e) {
-        document.getElementById('genesisMessage').textContent = 'Genesis issue failed. Please check browser storage.';
-      }
-    });
-  </script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Genesis — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Genesis<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="ownerpage.html">Owner Dashboard</a><a href="owner-userlist.html">User List</a>
+<a href="owner-send.html">Send Coins</a><a href="genesis.html">Genesis</a>
+<a href="ledger.html">Ledger</a><a href="index.html">Public Home</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<section class="card form"><h1>Genesis</h1><p>Creates the single initial supply only when genesis has not already been executed.</p>
+<button class="primary" onclick="JSLApp.genesis()">Start Genesis</button><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

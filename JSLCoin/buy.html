@@ -1,3 +1,11 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buy</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="brand" href="index.html"><span class="logo">Ω</span><span>Buy<small>JSLCoin Omega 5.0</small></span></a><nav class="nav"><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a><a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a><a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a><a href="#" onclick="JSLApp.logout()">Logout</a></nav></header><main class="wrap">
-<section id="buyBox" class="card"><h1>Buy JSL</h1><div class="notice warn">Buy function is reserved for the production payment gateway. No payment collection is active in this build.</div></section>
-</main><script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buy — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Buy<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
+<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
+<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main><section class="card form"><h1>Buy from Treasury</h1><label>Amount</label><input id="amount" type="number" min="1"><button class="primary" onclick="JSLApp.buy()">Buy</button><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

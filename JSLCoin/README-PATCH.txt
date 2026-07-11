@@ -1,1 +1,1 @@
-Patch only: upload these files into coins/JSLCoin/ and overwrite existing files. Public page has no owner info. User pages have no owner links. Owner pages are independent. Dashboard shows display name only. Transactions are current-user only. Layout fixed for mobile/full-width tables.
+Omega 5.1 Core full replacement package. Back up the current folder and Worker before overwrite.

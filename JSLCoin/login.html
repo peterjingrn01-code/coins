@@ -1,27 +1,14 @@
-<!doctype html><html>
-  <head><meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>JSLCoin 5.0 Login</title>
-    <link rel="stylesheet" href="style.css"></head>
-  <body><header><div><div class="brand logo">JSLCoin</div>
-    <div class="tag">5.0 Integration Edition</div></div>
-    <nav><a href="dashboard.html">Dashboard</a>
-      <a href="wallet.html">Wallet</a>
-      <a href="transactions.html">Transactions</a>
-      <a href="ownerpage.html">Owner</a></nav></header>
-    <main class="wrap"><div class="card" style="max-width:520px;margin:auto"><h1>Login / Register</h1>
-      <a href="forgot-password.html">Forgot password?</a>
-      <p class="muted">Use email and/or phone. 
-        Wallet is auto-created in the backend.</p>
-      <input id="identity" placeholder="Email, e.g. jingxingwei@hotmail.com">
-      <input id="phone" placeholder="Phone number">
-      <input id="name" placeholder="Display name">
-      <input id="password" type="password" placeholder="Password">
-      <button onclick="login()">Enter JSLCoin</button>
-      <div style="margin-top:12px">
-  <a href="forgot-password.html">Forgot Password?</a>
-      </div>
-      <p class="small muted">Genesis Owner: jingxingwei@hotmail.com · Initial Supply: 1B JSL</p></div></main>
-    <footer>© JSL-ian Technologies LTD. JSLCoin and JSL are trademarks of their owner.</footer>
-    <script src="config.js"></script>
-    <script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Owner Login — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Owner Login<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
+<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
+<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<section class="card form"><h1>Owner Login / First Setup</h1><p class="muted">On first use, enter the owner email or wallet key and choose a password. Later, use the same identity and password.</p>
+<label>Owner Email or Wallet Key</label><input id="identity"><label>Wallet Key (optional for email login)</label><input id="walletKey">
+<label>Password</label><input id="password" type="password"><button class="primary" onclick="JSLApp.ownerLogin()">Owner Login</button><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

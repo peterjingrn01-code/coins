@@ -1,44 +1,8 @@
-Ω coin Omega5.0
-version = 5.0-stable-upgrade
-base = JSLCoin 4.0 stable link map
-owner = jingxingwei@hotmail.com
-supply = 1000000000 JSL
-omega_link = https://omega.jsl-ian.com
-
-identity {
-  login = email + phone
-  wallet = auto
-  wallet_key = backend_only
-}
-
-role owner {
-  allow dashboard
-  allow wallet
-  allow send
-  allow receive
-  allow ledger
-  allow mint
-  allow burn
-  allow user_manage
-  allow omega_link
-}
-
-role user {
-  allow dashboard
-  allow wallet
-  allow send
-  allow receive
-  allow ledger
-  deny mint
-  deny burn
-  deny user_manage
-}
-
-transfer {
-  require amount > 0
-  require sender_balance >= amount
-  ledger write
-  balance recalculate
-  dashboard refresh
-  closure = L^n = -1
+STRUCTURE OmegaCoin {
+  SOURCE WorkerKV;
+  IDENTITY userId, wallet;
+  FLOW Input -> Verify -> Execute -> Record -> Audit;
+  RULE NoClientBalance;
+  RULE CanonicalLedger;
+  RULE OwnerUserSeparation;
 }

@@ -1,3 +1,12 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Transactions</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="brand" href="index.html"><span class="logo">Ω</span><span>Transactions<small>JSLCoin Omega 5.0</small></span></a><nav class="nav"><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a><a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a><a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a><a href="#" onclick="JSLApp.logout()">Logout</a></nav></header><main class="wrap">
-<section class="card"><h1>My Transactions</h1><p class="muted">Only transactions related to the current logged-in user are shown here.</p><div class="table-wrap"><table><thead><tr><th>Time</th><th>Type</th><th>From</th><th>To</th><th>Amount</th><th>Status</th></tr></thead><tbody id="txRows"></tbody></table></div></section>
-</main><script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transactions — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Transactions<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
+<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
+<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<section id="transactionsPage" class="card"><h1>Transactions</h1><div class="table-wrap"><table><thead><tr><th>Time</th><th>Type</th><th>From</th><th>To</th><th>Amount</th><th>Status</th></tr></thead><tbody id="transactionRows"></tbody></table></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

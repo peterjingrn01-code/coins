@@ -1,10 +1,6 @@
-// JSLCoin Omega 5.0 Commercial Release Configuration
-window.JSLCOIN_CONFIG = {
-  product: "JSLCoin Omega",
-  version: "5.0 Commercial Release",
-  ownerEmail: "jingxingwei@hotmail.com",
-  initialSupply: 1000000000,
-  symbol: "JSL",
-  omegaEndpoint: "https://omega.jsl-ian.com",
-  storageKey: "jslcoin_omega_5_0_state_v1"
-};
+window.JSL_CONFIG = Object.freeze({
+  API_BASE: "https://jslcoin-api.peterjingrn01.workers.dev",
+  APP_NAME: "JSLCoin Omega",
+  VERSION: "5.1 Core",
+  OMEGA_URL: "https://omega.jsl-ian.com"
+});

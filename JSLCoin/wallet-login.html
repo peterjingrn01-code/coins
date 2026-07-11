@@ -1,18 +1,14 @@
-<!doctype html><html><head><meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sign In</title><link rel="stylesheet" href="style.css"></head>
-  <body><header class="top"><a class="brand" href="index.html">
-    <span class="logo">Ω</span><span>Wallet Login<small>JSLCoin Omega 5.0</small></span></a>
-    <nav class="nav"><a href="index.html">Home</a><a href="wallet-login.html">Sign In</a>
-      <a href="userpage.html">Sign Up</a></nav></header><main class="wrap">
-<section id="loginBox" class="grid"><div class="card span6"><h1>Sign In</h1>
-  <p class="muted">Use username, email, or phone.</p><label>Username / Email / Phone</label>
-  <input id="identity" placeholder="username, email, or phone"><label>Password</label>
-  <input id="password" type="password"><p><button class="btn primary" onclick="JSLApp.login()">Sign In</button></p>
-  <div id="msg"></div></div><div class="card span6"><h2>Create a Wallet</h2><p>New user? Create your JSLCoin wallet.</p>
-   <p style="margin-top:10px">
-  <a href="forgot-password.html">Forgot Password?</a>
-   </p>
-    <a class="btn" href="userpage.html">Sign Up</a><hr><p class="muted">Owner page is independent and not shown in public/user navigation.</p></div>
-</section>
-</main><script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wallet Login — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Wallet Login<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
+<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
+<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<section class="card form"><h1>Sign In</h1><label>Username / Email / Phone / Wallet</label><input id="identity">
+<label>Password</label><input id="password" type="password"><div class="actions"><button class="primary" onclick="JSLApp.login()">Sign In</button>
+<a class="btn" href="userpage.html">Create Account</a></div><p><a href="forgot-password.html">Forgot Password?</a></p><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>

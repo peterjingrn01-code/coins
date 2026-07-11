@@ -1,3 +1,14 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Owner Console</title><link rel="stylesheet" href="style.css"></head><body><header class="top"><a class="brand" href="index.html"><span class="logo">Ω</span><span>Owner Console<small>JSLCoin Omega 5.0</small></span></a><nav class="nav"><a href="ownerpage.html">Owner Dashboard</a><a href="owner-userlist.html">User List</a><a href="owner-send.html">Send Coins</a><a href="genesis.html">Genesis</a><a href="ledger.html">Ledger</a><a href="https://omega.jsl-ian.com">Omega Link</a><a href="#" onclick="JSLApp.logout()">Logout</a></nav></header><main class="wrap">
-<h1>Owner Console</h1><div id="guard"></div><section id="ownerArea" class="grid hide"><div class="card span3"><b>Owner</b><p id="ownerName">—</p></div><div class="card span3"><b>Total Supply</b><p id="ownerSupply">—</p></div><div class="card span3"><b>Users</b><p id="ownerUsers">—</p></div><div class="card span3"><b>Owner Wallet</b><p id="ownerWallet">—</p></div><div class="card span4"><a class="btn primary" href="owner-userlist.html">User List</a></div><div class="card span4"><a class="btn good" href="owner-send.html">Send Coins</a></div><div class="card span4"><a class="btn" href="owner-issue.html">Issue Additional Amount Legal Link</a></div></section>
-</main><script src="app.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Owner Console — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div class="brand"><span class="logo">Ω</span><span>Owner Console<small>JSLCoin Omega 5.1 Core</small></span></div>
+<nav class="nav">
+<a href="ownerpage.html">Owner Dashboard</a><a href="owner-userlist.html">User List</a>
+<a href="owner-send.html">Send Coins</a><a href="genesis.html">Genesis</a>
+<a href="ledger.html">Ledger</a><a href="index.html">Public Home</a>
+<button onclick="JSLApp.logout()">Logout</button>
+</nav></header>
+<main>
+<div id="ownerPage" class="stack"><section class="grid"><div class="card stat">Owner<strong id="ownerName"></strong></div><div class="card stat">Owner Balance<strong id="ownerBalance"></strong></div>
+<div class="card stat">Total Supply<strong id="totalSupply"></strong></div><div class="card stat">Circulating<strong id="circulating"></strong></div><div class="card stat">Users<strong id="userCount"></strong></div></section>
+<section class="card"><h2>System Audit</h2><button onclick="JSLApp.audit()">Run Ledger/Balance Audit</button><div id="message"></div></section></div></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>
