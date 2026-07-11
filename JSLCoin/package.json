@@ -1,0 +1,9 @@
+{
+  "name": "jslcoin-omega-worker",
+  "version": "5.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  }
+}
