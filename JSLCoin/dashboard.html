@@ -1,15 +1,1 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dashboard — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
-<header><div class="brand"><span class="logo">Ω</span><span>Dashboard<small>JSLCoin Omega 5.1 Core</small></span></div>
-<nav class="nav">
-<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
-<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
-<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
-<button onclick="JSLApp.logout()">Logout</button>
-</nav></header>
-<main>
-<div id="dashboardPage" class="stack"><section class="grid"><div class="card stat">User<strong id="userName">Loading…</strong></div>
-<div class="card stat">Role<strong id="userRole">—</strong></div><div class="card stat">Balance<strong id="userBalance">—</strong></div></section>
-<section class="card"><h2>Wallet Address</h2><strong id="walletAddress">—</strong></section>
-<section class="card"><h2>Recent Transactions</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Type</th><th>From</th><th>To</th><th>Amount</th><th>Status</th></tr></thead><tbody id="recentTransactions"></tbody></table></div></section></div></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
-<script src="config.js"></script><script src="app.js"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard</title><link rel="stylesheet" href="style.css"></head><body><header><div class="brand"><span class="logo">Ω</span><span>Dashboard<small>JSLCoin Omega 6.0 Clean</small></span></div><nav><a class="btn" href="index.html">Home</a><a class="btn" href="dashboard.html">Dashboard</a><a class="btn" href="profile.html">Profile</a><a class="btn" href="wallet.html">Wallet</a><a class="btn" href="transactions.html">Transactions</a><a class="btn" href="buy.html">Buy</a><a class="btn" href="sell.html">Sell</a><a class="btn" href="transfer.html">Transfer</a><button onclick="JSLApp.logout()">Logout</button></nav></header><main><div id="dashboardPage" class="stack"><section class="grid"><div class="card stat">User<b id="userName">Loading…</b></div><div class="card stat">Role<b id="userRole">—</b></div><div class="card stat">Balance<b id="userBalance">—</b></div></section><section class="card"><h2>Wallet Address</h2><b id="walletAddress">—</b></section><section class="card"><h2>Recent Transactions</h2><div class="table-wrap"><table><thead><tr><th>Time</th><th>Type</th><th>From</th><th>To</th><th>Amount</th><th>Status</th></tr></thead><tbody id="recentRows"></tbody></table></div></section></div></main><footer>© 2026 JSL-ian Technologies.</footer><script src="config.js"></script><script src="app.js"></script></body></html>

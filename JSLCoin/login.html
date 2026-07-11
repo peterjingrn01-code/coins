@@ -1,14 +1,1 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Owner Login — JSLCoin Omega</title><link rel="stylesheet" href="style.css"></head><body>
-<header><div class="brand"><span class="logo">Ω</span><span>Owner Login<small>JSLCoin Omega 5.1 Core</small></span></div>
-<nav class="nav">
-<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="profile.html">Profile</a>
-<a href="wallet.html">Wallet</a><a href="transactions.html">Transactions</a>
-<a href="buy.html">Buy</a><a href="sell.html">Sell</a><a href="transfer.html">Transfer</a>
-<button onclick="JSLApp.logout()">Logout</button>
-</nav></header>
-<main>
-<section class="card form"><h1>Owner Login / First Setup</h1><p class="muted">On first use, enter the owner email or wallet key and choose a password. Later, use the same identity and password.</p>
-<label>Owner Email or Wallet Key</label><input id="identity"><label>Wallet Key (optional for email login)</label><input id="walletKey">
-<label>Password</label><input id="password" type="password"><button class="primary" onclick="JSLApp.ownerLogin()">Owner Login</button><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies. JSLCoin Omega 5.1 Core.</footer>
-<script src="config.js"></script><script src="app.js"></script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Owner Login</title><link rel="stylesheet" href="style.css"></head><body><header><div class="brand"><span class="logo">Ω</span><span>Owner Login<small>JSLCoin Omega 6.0 Clean</small></span></div><nav><a class="btn" href="index.html">Home</a><a class="btn" href="dashboard.html">Dashboard</a><a class="btn" href="profile.html">Profile</a><a class="btn" href="wallet.html">Wallet</a><a class="btn" href="transactions.html">Transactions</a><a class="btn" href="buy.html">Buy</a><a class="btn" href="sell.html">Sell</a><a class="btn" href="transfer.html">Transfer</a><button onclick="JSLApp.logout()">Logout</button></nav></header><main><section class="card form"><h1>Owner Login</h1><label>Owner Email or Wallet</label><input id="identity"><label>Password</label><input id="password" type="password"><label>One-time Setup Key</label><input id="setupKey"><button class="primary" onclick="JSLApp.ownerLogin()">Owner Login</button><div id="message"></div></section></main><footer>© 2026 JSL-ian Technologies.</footer><script src="config.js"></script><script src="app.js"></script></body></html>
