@@ -1,0 +1,1 @@
+PASS: static links, frontend handlers, API route references, and HTML IDs are connected.
