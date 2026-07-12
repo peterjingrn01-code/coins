@@ -1,1 +1,6 @@
 
+name = "jslcoin-api"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Bind a KV namespace as DB in Cloudflare Dashboard or add namespace IDs here.
