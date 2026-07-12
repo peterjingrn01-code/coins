@@ -1,14 +1,1 @@
 
-name = "jslcoin"
-
-main = "worker.js"
-compatibility_date = "2026-07-11"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "jslcoin_network_db"
-database_id = "5aadd5dc-2e1b-466d-9b43-ab5c7d49eaa6"
-
-[[kv_namespaces]]
-binding = "KV"
-id = "7944d5e70e8e472eb58686570e749c96"
