@@ -1,3 +1,12 @@
-name="jslcoin-api"
+name="jslcoin-api-v7"
 main="worker.js"
 compatibility_date="2026-07-11"
+
+[[d1_databases]]
+binding="DB"
+database_name="jslcoin_network_db"
+database_id="REPLACE_WITH_D1_DATABASE_ID"
+
+[[kv_namespaces]]
+binding="KV"
+id="REPLACE_WITH_KV_NAMESPACE_ID"
